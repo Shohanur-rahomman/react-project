@@ -1,7 +1,7 @@
 import React, { use, useState} from 'react';
 import Blog from '../Blog/Blog';
 
-const Blogs = ({ fetchData, handleBookMark }) => {
+const Blogs = ({ fetchData, handleBookMark, handleTime }) => {
     // const [blogs, setBlogs] = useState([]);
     const data = use(fetchData);
     console.log(data);
@@ -12,6 +12,7 @@ const Blogs = ({ fetchData, handleBookMark }) => {
             {
                 data.map((oneData) => <Blog
                     key={oneData.id}
+                    handleTime={handleTime}
                     handleBookMark={handleBookMark}
                     oneData={oneData}></Blog>)
             }

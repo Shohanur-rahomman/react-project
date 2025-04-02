@@ -1,7 +1,7 @@
 import React from 'react';
 import { IoBookmarkSharp } from "react-icons/io5";
 
-const Blog = ({ oneData, handleBookMark }) => {
+const Blog = ({ oneData, handleBookMark, handleTime }) => {
     const { author, author_img, reading_time, publish_date, hashtags } = oneData;
     return (
         <div className=''>
@@ -21,9 +21,10 @@ const Blog = ({ oneData, handleBookMark }) => {
             </div>
             <div>
                 {
-                    hashtags.map((hes,index) => <span key={index}><a href="#">{hes}</a></span>)
+                    hashtags.map((hes, index) => <span key={index}><a href="#">{hes}</a></span>)
                 }
             </div>
+            <button onClick={() => handleTime(reading_time)} className='btn cursor-pointer'>Add Time</button>
         </div>
     );
 };

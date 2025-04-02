@@ -1,9 +1,12 @@
 import React from 'react';
 import BookMar from '../BookMar/BookMar';
 
-const BookMarks = ({ blogs }) => {
+const BookMarks = ({ blogs, readTime }) => {
     return (
         <div className='md:w-1/3'>
+            <div>
+                <h2>Total read time : {readTime }</h2>
+            </div>
             <h2>book marks{blogs.length}</h2>
             {
                 blogs.map((blog)=> <BookMar key={blog.id} blog={blog}></BookMar>)

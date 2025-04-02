@@ -13,6 +13,12 @@ const fetchData = fetch('../public/data.json').then(res => res.json())
 
 function App() {
   const [blogs, setBlogs] = useState([]);
+  const [readTime, setReadTime] = useState(0);
+
+  const handleTime = (time) => {
+    const newReadTime = readTime + time;
+    setReadTime(newReadTime)
+  }
   
   const handleBookMark = blog => {
     const newBookMark = [...blogs, blog];
@@ -24,9 +30,9 @@ function App() {
       <Header></Header>
       <div className='md:flex gap-10'>
         <Suspense fallback={<h3>data loading.....</h3>}>
-          <Blogs fetchData={fetchData} handleBookMark={handleBookMark}></Blogs>
+          <Blogs fetchData={fetchData} handleBookMark={handleBookMark} handleTime={handleTime}></Blogs>
         </Suspense>
-        <BookMarks blogs={blogs}></BookMarks>
+        <BookMarks blogs={blogs} readTime={readTime}></BookMarks>
       </div>
       
     </div>
