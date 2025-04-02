@@ -15,15 +15,20 @@ function App() {
   const [blogs, setBlogs] = useState([]);
   const [readTime, setReadTime] = useState(0);
 
-  const handleTime = (time) => {
-    const newReadTime = readTime + time;
-    setReadTime(newReadTime)
-  }
-  
   const handleBookMark = blog => {
     const newBookMark = [...blogs, blog];
     setBlogs(newBookMark)
   }
+
+  const handleTime = (time,id) => {
+    const newReadTime = readTime + time;
+    setReadTime(newReadTime)
+
+    const removeBook = blogs.filter(blog => blog.id !== id);
+    setBlogs(removeBook)
+  }
+  
+
 
   return (
     <div className='w-11/12 mx-auto '>

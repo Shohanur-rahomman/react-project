@@ -9,7 +9,7 @@ const BookMarks = ({ blogs, readTime }) => {
             </div>
             <h2>book marks{blogs.length}</h2>
             {
-                blogs.map((blog)=> <BookMar key={blog.id} blog={blog}></BookMar>)
+                blogs.map((blog,index)=> <BookMar key={index} blog={blog}></BookMar>)
             }
         </div>
     );
